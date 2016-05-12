@@ -1,0 +1,117 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'android-apt'
+
+android {
+    dataBinding {
+        enabled = true
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('keystore.jks')
+            keyAlias 'keystore'
+            keyPassword 'PASSWORD'
+            storePassword 'PASSWORD'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+    defaultConfig {
+        applicationId "this.is.my.package"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode buildVersionCode()
+        versionName VERSION_NAME
+        multiDexEnabled true
+
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    buildTypes {
+
+        debug {
+            applicationIdSuffix '.debug'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    output.outputFile = new File(output.outputFile.parent,
+                            output.outputFile.name.replace("mobile-debug", APP_NAME + "-" + VERSION_NAME)
+                    )
+                }
+            }
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    output.outputFile = new File(output.outputFile.parent,
+                            output.outputFile.name.replace("mobile-release", APP_NAME + "-" + VERSION_NAME)
+                    )
+                }
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    apt libs.daggerCompiler
+    apt libs.parceler
+    compile libs.appCompat
+    compile libs.butterKnife
+    compile libs.cardView
+    compile(libs.crashlytics) {
+        transitive = true;
+    }
+    compile libs.dagger
+    compile libs.dart
+    compile libs.design
+    compile libs.easyDataBinding
+    compile libs.easyGcm
+    compile libs.easyPrefs
+    compile libs.facebook
+    compile libs.glide
+    compile libs.gson
+    compile libs.henson
+    compile libs.materialRipple
+    compile libs.okHttpInterceptor
+    compile libs.parcelerApi
+    compile libs.playServiceAuth
+    compile libs.recyclerView
+    compile libs.recyclerViewAdapter
+    compile libs.recyclerViewDataBinding
+    compile libs.retrofit
+    compile libs.retrofitAdapterRxJava
+    compile libs.retrofitConverterGson
+    compile libs.rxAndroid
+    compile libs.rxBindings
+    compile libs.slidingUpPanel
+    compile libs.smartLocation
+    compile libs.stetho
+    compile libs.stethoOkHttp
+    compile (libs.twitter) {
+        transitive = true;
+    }
+    provided libs.dartProc
+    provided libs.hensonProc
+    provided libs.javaxAnnotation
+    provided libs.lombok
+
+
+}
+apply plugin: 'com.google.gms.google-services'

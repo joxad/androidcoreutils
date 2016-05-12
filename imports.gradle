@@ -1,6 +1,7 @@
 //root-project
 ext {
     butterKnifeVersion = "7.0.1"
+    crashlyticsVersion ="2.5.5"
     cropVersion = "1.0.16"
     daggerVersion = "2.2"
     dartVersion = "2.0.0"
@@ -15,6 +16,7 @@ ext {
     glideVersion = "3.7.0"
     gsonVersion = "2.5"
     javaxVersion = "1.0"
+    keyboardVersion = "1.0.1"
     loggerVersion = "1.12"
     lombokVersion = "1.12.6"
     materialVersion = "1.0.2"
@@ -26,14 +28,18 @@ ext {
     rvDataBindingVersion = "1.1.0"
     rxBindingVersion = "0.4.0"
     rxVersion = "1.0.1"
+    shapeImageViewVersion = "0.9.+"
     slidingUpPanelVersion = "3.3.0"
     smartLocationVersion = "3.2.1"
     stethoVersion = "1.3.1"
     supportLibraryVersion = "23.3.0"
+    twitterVersion ="1.13.0"
+
     libs = [
             appCompat              : "com.android.support:appcompat-v7:$supportLibraryVersion",
             butterKnife            : "com.jakewharton:butterknife:$butterKnifeVersion",
             cardView               : "com.android.support:cardview-v7:$supportLibraryVersion",
+            crashlytics            : "com.crashlytics.sdk.android:crashlytics:$crashlyticsVersion@aar",
             cropper                : "com.isseiaoki:simplecropview:$cropVersion",
             dagger                 : "com.google.dagger:dagger:$daggerVersion", //use compile
             daggerCompiler         : "com.google.dagger:dagger-compiler:$daggerVersion",//use apt
@@ -56,6 +62,7 @@ ext {
             hensonProc             : "com.f2prateek.dart:henson-processor:$dartVersion", // use provided
             javaxAnnotation        : "javax.annotation:jsr250-api:$javaxVersion",
             jUnit                  : 'junit:junit:4.12',
+            keyboardEvent          : "net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:$keyboardVersion",
             logger                 : "com.github.orhanobut:logger:$loggerVersion",
             lombok                 : "org.projectlombok:lombok:$lombokVersion",//use provided
             materialRipple         : "com.balysv:material-ripple:$materialVersion",
@@ -74,11 +81,13 @@ ext {
             robolectric            : 'org.robolectric:robolectric:3.0',
             rxAndroid              : "io.reactivex:rxandroid:$rxVersion",
             rxBindings             : "com.jakewharton.rxbinding:rxbinding:$rxBindingVersion",
+            shapeImageView         : "com.github.siyamed:android-shape-imageview:$shapeImageViewVersion@aar",
             slidingUpPanel         : "com.sothree.slidinguppanel:library:$slidingUpPanelVersion",
             smartLocation          : "io.nlopez.smartlocation:library:$smartLocationVersion",
             stetho                 : "com.facebook.stetho:stetho:$stethoVersion",
-            stethoOkHttp           : "com.facebook.stetho:stetho-okhttp3:$stethoVersion"
+            stethoOkHttp           : "com.facebook.stetho:stetho-okhttp3:$stethoVersion",
             support                : "com.android.support:support-v13:$supportLibraryVersion",
+            twitter                : "com.twitter.sdk.android:twitter:$twitterVersion@aar"
 
     ]
 }
