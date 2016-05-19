@@ -16,6 +16,7 @@ ext {
     glideVersion = "3.7.0"
     gsonVersion = "2.5"
     javaxVersion = "1.0"
+    jcropVersion = "0.22"
     keyboardVersion = "1.0.1"
     loggerVersion = "1.12"
     lombokVersion = "1.12.6"
@@ -61,6 +62,7 @@ ext {
             henson                 : "com.f2prateek.dart:henson:$dartVersion",
             hensonProc             : "com.f2prateek.dart:henson-processor:$dartVersion", // use provided
             javaxAnnotation        : "javax.annotation:jsr250-api:$javaxVersion",
+            jCrop                  : "com.github.jimcoven:jcropimageview:$jcropVersion",
             jUnit                  : 'junit:junit:4.12',
             keyboardEvent          : "net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:$keyboardVersion",
             logger                 : "com.github.orhanobut:logger:$loggerVersion",
