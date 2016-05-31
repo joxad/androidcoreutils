@@ -1,5 +1,7 @@
 package com.joxad.androidtemplate.viewmodel;
 
+import android.databinding.Bindable;
+
 import com.joxad.androidtemplate.databinding.ActivityMainBinding;
 import com.joxad.androidtemplate.view.ActivityMain;
 import com.joxad.easydatabinding.activity.ActivityBaseVM;
@@ -24,5 +26,11 @@ public class ActivityMainVM extends ActivityBaseVM<ActivityMain, ActivityMainBin
     @Override
     public void destroy() {
 
+    }
+
+
+    @Bindable
+    public String getName() {
+        return "Welcome to MyTemplate";
     }
 }

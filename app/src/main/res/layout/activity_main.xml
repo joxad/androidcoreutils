@@ -35,14 +35,20 @@
         </android.support.design.widget.AppBarLayout>
 
 
-        <TextView
-            android:id="@+id/alarm_recycler_view"
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@{activityMainVM.name}"/>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@{activityMainVM.name}"
+                tools:text="test" />
 
 
-
+        </android.support.v4.widget.NestedScrollView>
     </android.support.design.widget.CoordinatorLayout>
 </layout>
 
