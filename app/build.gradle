@@ -1,49 +1,45 @@
 apply plugin: 'com.android.application'
-apply plugin: 'io.fabric'
-apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def jdk_dir = properties.getProperty('jdk.dir')
+def keystore_file = properties.getProperty('keystore.file')
+def file_password = properties.getProperty('file.password')
+def key_alias = properties.getProperty('keystore.alias')
+def key_password = properties.getProperty('keystore.password')
 
 android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
     dataBinding {
         enabled = true
     }
-    lintOptions {
-        checkReleaseBuilds false
-        abortOnError false
+    defaultConfig {
+        applicationId "com.startogamu.musicalarm"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode buildVersionCode()
+        versionName VERSION_NAME
+
     }
 
     signingConfigs {
         release {
-            storeFile file('keystore.jks')
-            keyAlias 'keystore'
-            keyPassword 'PASSWORD'
-            storePassword 'PASSWORD'
+            storeFile file(keystore_file)
+            storePassword file_password
+            keyAlias key_alias
+            keyPassword key_password
         }
     }
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
-    defaultConfig {
-        applicationId "this.is.my.package"
-        minSdkVersion 15
-        targetSdkVersion 23
-        versionCode buildVersionCode()
-        versionName VERSION_NAME
-        multiDexEnabled true
-
-    }
-
-    dexOptions {
-        javaMaxHeapSize "4g"
-    }
-
     buildTypes {
-
         debug {
-            applicationIdSuffix '.debug'
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
                     output.outputFile = new File(output.outputFile.parent,
-                            output.outputFile.name.replace("mobile-debug", APP_NAME + "-" + VERSION_NAME)
+                            output.outputFile.name.replace("app-debug", APP_NAME + "-" + VERSION_NAME)
                     )
                 }
             }
@@ -55,63 +51,59 @@ android {
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
                     output.outputFile = new File(output.outputFile.parent,
-                            output.outputFile.name.replace("mobile-release", APP_NAME + "-" + VERSION_NAME)
+                            output.outputFile.name.replace("app-release", APP_NAME + "-" + VERSION_NAME)
                     )
                 }
             }
         }
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-}
 
+    retrolambda {
+        jdk jdk_dir
+    }
+}
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 
     apt libs.daggerCompiler
+    apt libs.dbFlowProc
     apt libs.parceler
+
     compile libs.appCompat
     compile libs.butterKnife
-    compile libs.cardView
-    compile(libs.crashlytics) {
-        transitive = true;
-    }
     compile libs.dagger
     compile libs.dart
+    compile libs.dbFlowCore
+    compile libs.dbFlow
     compile libs.design
-    compile libs.easyDataBinding
-    compile libs.easyGcm
     compile libs.easyPrefs
-    compile libs.facebook
-    compile libs.glide
+    compile libs.easyDataBinding
     compile libs.gson
+    compile libs.glide
     compile libs.henson
     compile libs.materialRipple
     compile libs.okHttpInterceptor
     compile libs.parcelerApi
-    compile libs.playServiceAuth
     compile libs.recyclerView
-    compile libs.recyclerViewAdapter
     compile libs.recyclerViewDataBinding
     compile libs.retrofit
-    compile libs.retrofitAdapterRxJava
     compile libs.retrofitConverterGson
+    compile libs.retrofitAdapterRxJava
     compile libs.rxAndroid
     compile libs.rxBindings
-    compile libs.slidingUpPanel
-    compile libs.smartLocation
-    compile libs.stetho
-    compile libs.stethoOkHttp
-    compile (libs.twitter) {
-        transitive = true;
-    }
+    compile libs.support
+
+
     provided libs.dartProc
     provided libs.hensonProc
-    provided libs.javaxAnnotation
     provided libs.lombok
+    provided libs.javaxAnnotation
 
 
 }
-apply plugin: 'com.google.gms.google-services'
+

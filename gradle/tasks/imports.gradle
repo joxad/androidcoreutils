@@ -1,23 +1,23 @@
 //root-project
 ext {
     butterKnifeVersion = "7.0.1"
-    crashlyticsVersion ="2.5.5"
+    crashlyticsVersion = "2.5.5"
     cropVersion = "1.0.16"
     daggerVersion = "2.2"
     dartVersion = "2.0.0"
     dbFlowVersion = "3.0.0-beta6"
-    dialogPlusVersion = "1.11"
+    dialerTPVersion = "4386944980"
     easyDataBindingVersion = "0.4.5"
     easyGcmVersion = "1.0.4"
     easyPrefsVersion = "1.8.1"
     easySpotifyVersion = "1.1.1"
     eventBusVersion = "3.0.0"
     facebookVersion = "4.6.0"
+    freezerVersion = "2.0.3"
     glideTransformationVersion = "2.0.1"
     glideVersion = "3.7.0"
     gsonVersion = "2.5"
     javaxVersion = "1.0"
-    jcropVersion = "0.22"
     keyboardVersion = "1.0.1"
     loggerVersion = "1.12"
     lombokVersion = "1.12.6"
@@ -30,12 +30,12 @@ ext {
     rvDataBindingVersion = "1.1.0"
     rxBindingVersion = "0.4.0"
     rxVersion = "1.0.1"
-    shapeImageViewVersion = "0.9.+"
+    circularImageViewVersion = "2.0.0"
     slidingUpPanelVersion = "3.3.0"
     smartLocationVersion = "3.2.1"
     stethoVersion = "1.3.1"
     supportLibraryVersion = "23.3.0"
-    twitterVersion ="1.13.0"
+    twitterVersion = "1.13.0"
 
     libs = [
             appCompat              : "com.android.support:appcompat-v7:$supportLibraryVersion",
@@ -51,20 +51,22 @@ ext {
             dbFlowCore             : "com.github.Raizlabs.DBFlow:dbflow-core:$dbFlowVersion",
             dbFlowProc             : "com.github.Raizlabs.DBFlow:dbflow-processor:$dbFlowVersion", //use provided
             design                 : "com.android.support:design:$supportLibraryVersion",
-            dialogPlus             : "com.orhanobut:dialogplus:$dialogPlusVersion@aar",
+            dialogTimePicker       : "com.github.ugurtekbas:dialTimePicker:$dialerTPVersion",
             easyDataBinding        : "com.joxad.easydatabinding:lib:$easyDataBindingVersion",
             easyGcm                : "com.github.joxad:android-easy-gcm:$easyGcmVersion",
             easyPrefs              : "com.pixplicity.easyprefs:library:$easyPrefsVersion@aar",
             easySpotify            : "com.github.joxad:android-easy-spotify:$easySpotifyVersion",
             eventBus               : "org.greenrobot:eventbus:$eventBusVersion",
             facebook               : "com.facebook.android:facebook-android-sdk:$facebookVersion",
+            freezerApt             : "fr.xebia.android.freezer:freezer-compiler:$freezerVersion",
+            freezer                : "fr.xebia.android.freezer:freezer:$freezerVersion",
+            freezerProvider        : "fr.xebia.android.freezer:freezer-annotations:$freezerVersion",
             glide                  : "com.github.bumptech.glide:glide:$glideVersion",
             glideTransfo           : "jp.wasabeef:glide-transformations:$glideTransformationVersion",
             gson                   : "com.google.code.gson:gson:$gsonVersion",
             henson                 : "com.f2prateek.dart:henson:$dartVersion",
             hensonProc             : "com.f2prateek.dart:henson-processor:$dartVersion", // use provided
             javaxAnnotation        : "javax.annotation:jsr250-api:$javaxVersion",
-            jCrop                  : "com.github.jimcoven:jcropimageview:$jcropVersion",
             jUnit                  : 'junit:junit:4.12',
             keyboardEvent          : "net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:$keyboardVersion",
             logger                 : "com.github.orhanobut:logger:$loggerVersion",
@@ -85,7 +87,7 @@ ext {
             robolectric            : 'org.robolectric:robolectric:3.0',
             rxAndroid              : "io.reactivex:rxandroid:$rxVersion",
             rxBindings             : "com.jakewharton.rxbinding:rxbinding:$rxBindingVersion",
-            shapeImageView         : "com.github.siyamed:android-shape-imageview:$shapeImageViewVersion@aar",
+            circleIV               : "de.hdodenhof:circleimageview:$circularImageViewVersion",
             slidingUpPanel         : "com.sothree.slidinguppanel:library:$slidingUpPanelVersion",
             smartLocation          : "io.nlopez.smartlocation:library:$smartLocationVersion",
             stetho                 : "com.facebook.stetho:stetho:$stethoVersion",
