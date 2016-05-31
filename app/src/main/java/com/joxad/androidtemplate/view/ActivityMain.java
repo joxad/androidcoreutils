@@ -1,7 +1,7 @@
 package com.joxad.androidtemplate.view;
 
 import android.os.Bundle;
-
+import com.joxad.androidtemplate.BR;
 import com.joxad.androidtemplate.R;
 import com.joxad.androidtemplate.databinding.ActivityMainBinding;
 import com.joxad.androidtemplate.viewmodel.ActivityMainVM;
@@ -13,7 +13,7 @@ import com.joxad.easydatabinding.activity.ActivityBase;
 public class ActivityMain extends ActivityBase<ActivityMainBinding, ActivityMainVM> {
     @Override
     public int data() {
-        return 0;
+        return BR.activityMainVM;
     }
 
     @Override
