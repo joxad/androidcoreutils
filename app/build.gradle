@@ -77,7 +77,6 @@ dependencies {
     compile libs.appCompat
     compile libs.butterKnife
     compile libs.dagger
-    compile libs.dart
     compile libs.dbFlowCore
     compile libs.dbFlow
     compile libs.design
@@ -85,7 +84,6 @@ dependencies {
     compile libs.easyDataBinding
     compile libs.gson
     compile libs.glide
-    compile libs.henson
     compile libs.materialRipple
     compile libs.okHttpInterceptor
     compile libs.parcelerApi
@@ -99,8 +97,6 @@ dependencies {
     compile libs.support
 
 
-    provided libs.dartProc
-    provided libs.hensonProc
     provided libs.lombok
     provided libs.javaxAnnotation
 
