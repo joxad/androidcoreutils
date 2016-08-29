@@ -5,22 +5,24 @@ apply plugin: 'me.tatarka.retrolambda'
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
-def jdk_dir = properties.getProperty('jdk.dir')
 def keystore_file = properties.getProperty('keystore.file')
 def file_password = properties.getProperty('file.password')
 def key_alias = properties.getProperty('keystore.alias')
 def key_password = properties.getProperty('keystore.password')
 
+
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    buildToolsVersion rootProject.ext.androidBuildToolsVersion
+
     dataBinding {
         enabled = true
     }
     defaultConfig {
         applicationId "com.joxad.androidtemplate"
-        minSdkVersion 16
-        targetSdkVersion 23
+        minSdkVersion rootProject.ext.androidMinSdkVersion
+        targetSdkVersion rootProject.ext.androidTargetSdkVersion
         versionCode buildVersionCode()
         versionName VERSION_NAME
 
@@ -64,41 +66,39 @@ android {
     }
 
     retrolambda {
-        jdk jdk_dir
+        jdk rootProject.ext.jdkDir
     }
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    apt libs.daggerCompiler
-    apt libs.dbFlowProc
+
     apt libs.parceler
 
     compile libs.appCompat
     compile libs.butterKnife
-    compile libs.dagger
-    compile libs.dbFlowCore
-    compile libs.dbFlow
     compile libs.design
     compile libs.easyPrefs
     compile libs.easyDataBinding
+    compile libs.eventBus
     compile libs.gson
     compile libs.glide
     compile libs.materialRipple
-    compile libs.okHttpInterceptor
+    compile(libs.materialDrawer) {
+        transitive = true
+    }
     compile libs.parcelerApi
     compile libs.recyclerView
     compile libs.recyclerViewDataBinding
-    compile libs.retrofit
-    compile libs.retrofitConverterGson
-    compile libs.retrofitAdapterRxJava
     compile libs.rxAndroid
     compile libs.rxBindings
     compile libs.support
 
-
     provided libs.lombok
     provided libs.javaxAnnotation
+
+
+    compile project(path: ':core')
 
 
 }

@@ -1,4 +1,4 @@
-package com.joxad.androidtemplate.core.utils;
+package com.joxad.androidtemplate.utils;
 
 import android.content.Context;
 import android.content.ContextWrapper;

@@ -1,4 +1,4 @@
-package com.joxad.androidtemplate.module.retrofit;
+package com.joxad.androidtemplate.core.ws;
 
 import android.support.annotation.Nullable;
 
@@ -12,17 +12,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by josh on 11/04/16.
  */
-public class RetrofitBaseModule {
+public class RetrofitBase {
 
     private Retrofit retrofit;
 
-    public RetrofitBaseModule(String url) {
+    public RetrofitBase(String url) {
         this(url, null);
     }
 
-    public RetrofitBaseModule(String url, @Nullable Interceptor interceptor) {
+    public RetrofitBase(String url, @Nullable Interceptor interceptor) {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.addInterceptor(httpLoggingInterceptor);

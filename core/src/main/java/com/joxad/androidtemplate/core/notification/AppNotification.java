@@ -5,8 +5,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 
-import com.joxad.androidtemplate.R;
-
 
 /**
  * Created by josh on 10/04/16.
@@ -27,12 +25,12 @@ public class AppNotification {
 
     /***
      */
-    public static void show(final String title) {
+    public static void show(final int drawable , final String title) {
         AppNotification.title = title;
 
         Notification notification = new Notification.Builder(context)
                 .setContentTitle(title)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(drawable)
                 .setOngoing(true).build();
 
         notificationManager.notify(0, notification);
