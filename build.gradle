@@ -14,7 +14,7 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.3'
+        classpath 'com.android.tools.build:gradle:2.2.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'me.tatarka:gradle-retrolambda:3.2.5'
 
@@ -44,10 +44,10 @@ def jdk_dir = properties.getProperty('jdk.dir')
 
 
 ext {
-    androidCompileSdkVersion = 23
-    androidBuildToolsVersion = '23.0.3'
+    androidCompileSdkVersion = 24
+    androidBuildToolsVersion = '24.0.1'
     androidMinSdkVersion = 16
-    androidTargetSdkVersion = 23
+    androidTargetSdkVersion = 24
     jdkDir = jdk_dir
 }
 
