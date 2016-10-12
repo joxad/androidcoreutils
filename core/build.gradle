@@ -34,6 +34,7 @@ dependencies {
     compile libs.glide
     compile libs.okHttpInterceptor
     compile libs.parcelerApi
+    compile libs.recyclerView
     compile libs.retrofit
     compile libs.retrofitConverterGson
     compile libs.retrofitAdapterRxJava
