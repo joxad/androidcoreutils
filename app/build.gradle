@@ -76,17 +76,12 @@ dependencies {
     apt libs.parceler
 
     compile libs.appCompat
-    compile libs.butterKnife
     compile libs.design
     compile libs.easyPrefs
     compile libs.easyDataBinding
     compile libs.eventBus
     compile libs.gson
-    compile libs.glide
-    compile libs.materialRipple
-    compile(libs.materialDrawer) {
-        transitive = true
-    }
+    compile libs.glide    
     compile libs.parcelerApi
     compile libs.recyclerView
     compile libs.recyclerViewDataBinding

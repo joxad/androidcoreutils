@@ -18,19 +18,13 @@ public class ActivityMainVM extends ActivityBaseVM<ActivityMain, ActivityMainBin
         super(activity, binding);
     }
 
-    @Override
-    public void init() {
-
-    }
-
-    @Override
-    public void destroy() {
-
-    }
-
-
     @Bindable
     public String getName() {
         return "Welcome to MyTemplate";
+    }
+
+    @Override
+    public void onCreate() {
+
     }
 }

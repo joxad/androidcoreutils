@@ -29,7 +29,6 @@ dependencies {
 
 
     apt libs.parceler
-    apt libs.dbFlowProc
 
     compile libs.glide
     compile libs.okHttpInterceptor
@@ -40,8 +39,6 @@ dependencies {
     compile libs.retrofitAdapterRxJava
     compile libs.rxAndroid
     compile libs.support
-    compile libs.dbFlowCore
-    compile libs.dbFlow
 
     provided libs.lombok
     provided libs.javaxAnnotation

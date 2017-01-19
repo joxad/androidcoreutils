@@ -45,8 +45,8 @@ def jdk_dir = properties.getProperty('jdk.dir')
 
 ext {
     androidCompileSdkVersion = 24
-    androidBuildToolsVersion = '24.0.1'
-    androidMinSdkVersion = 16
+    androidBuildToolsVersion = '24.0.3'
+    androidMinSdkVersion = 19
     androidTargetSdkVersion = 24
     jdkDir = jdk_dir
 }

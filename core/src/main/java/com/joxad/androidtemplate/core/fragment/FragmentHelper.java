@@ -2,10 +2,11 @@ package com.joxad.androidtemplate.core.fragment;
 
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.joxad.androidtemplate.core.R;
+
 
 /**
  * Created by josh on 24/08/16.
@@ -13,71 +14,26 @@ import com.joxad.androidtemplate.core.R;
 public class FragmentHelper {
 
 
-    /***
-     * @param activity
-     * @param fragment
-     * @param withBackstack
-     */
-    public static void addFragment(FragmentActivity activity, Fragment fragment, @IdRes int id, boolean withBackstack) {
-        FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
-        transaction.add(id, fragment);
-        if (withBackstack) transaction.addToBackStack(fragment.getClass().getSimpleName());
-        transaction.commit();
+    public static void replaceFragmentNoAnim(FragmentManager fragmentManager, Fragment fragment, @IdRes int id, boolean clearBackstack, boolean withBackstack) {
+        updateFragment(false, fragmentManager, fragment, id, clearBackstack, withBackstack, false);
+    }
+
+    public static void replaceFragment(FragmentManager fragmentManager, Fragment fragment, @IdRes int id, boolean clearBackstack, boolean withBackstack) {
+        updateFragment(false, fragmentManager, fragment, id, clearBackstack, withBackstack, true);
     }
 
     /***
-     * @param activity
      * @param fragment
      * @param clearBackStack
      * @param withBackstack
      */
-    public static void replaceFragment(FragmentActivity activity, Fragment fragment, @IdRes int id,
-                                       boolean clearBackStack, boolean withBackstack) {
-        android.support.v4.app.FragmentManager supportFragmentManager = activity.getSupportFragmentManager();
-
-        // Clear the back stack if needed
-        if (clearBackStack) {
-            while (supportFragmentManager.getBackStackEntryCount() > 0) {
-                supportFragmentManager.popBackStackImmediate();
-            }
-        }
-
-        // Set up the transaction
-        FragmentTransaction transaction = supportFragmentManager.beginTransaction();
-        transaction.setCustomAnimations(
-                R.anim.slide_in_from_right,
-                R.anim.slide_out_to_left,
-                R.anim.slide_in_from_left,
-                R.anim.slide_out_to_right
-        );
-        transaction.replace(id, fragment);
-
-        // Add the new fragment to back stack if needed
-        if (withBackstack) {
-            transaction.addToBackStack(fragment.getClass().getSimpleName());
-        }
-
-        // Commit transaction
-        try {
-            transaction.commit();
-        } catch (Exception e) {
-            transaction = supportFragmentManager.beginTransaction();
-            transaction.replace(id, fragment);
-            transaction.commitAllowingStateLoss();
-        }
+    public static void addFragment(FragmentManager fragmentManager, Fragment fragment, @IdRes int id,
+                                   boolean clearBackStack, boolean withBackstack) {
+        updateFragment(true, fragmentManager, fragment, id, clearBackStack, withBackstack, true);
     }
 
-    /**
-     *
-     * @param activity
-     */
-    public static void popBackStack(FragmentActivity activity) {
-        android.support.v4.app.FragmentManager supportFragmentManager = activity.getSupportFragmentManager();
-        supportFragmentManager.popBackStack();
-    }
 
     /***
-     *
      * @param fragmentName
      * @return
      * @throws IllegalAccessException
@@ -92,4 +48,43 @@ public class FragmentHelper {
         }
         return (Fragment) className.newInstance();
     }
+
+    /***
+     * @param fragment
+     * @param clearBackStack
+     * @param withBackstack
+     */
+    private static void updateFragment(boolean add, FragmentManager fragmentManager, Fragment fragment, @IdRes int id,
+                                       boolean clearBackStack, boolean withBackstack, boolean withAnim) {
+
+        // Clear the back stack if needed
+        if (clearBackStack) {
+            while (fragmentManager.getBackStackEntryCount() > 0) {
+                fragmentManager.popBackStackImmediate();
+            }
+        }
+        // Set up the transaction
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        if (withAnim)
+            transaction.setCustomAnimations(R.anim.slide_in_from_right, R.anim.slide_out_to_left, R.anim.slide_in_from_left, R.anim.slide_out_to_right);
+        if (add)
+            transaction.add(id, fragment, fragment.getClass().getSimpleName());
+        else
+            transaction.replace(id, fragment, fragment.getClass().getSimpleName());
+        // Add the new fragment to back stack if needed
+        if (withBackstack) {
+            transaction.addToBackStack(fragment.getClass().getSimpleName());
+        }
+
+        // Commit transaction
+        try {
+            transaction.commit();
+        } catch (Exception e) {
+            transaction = fragmentManager.beginTransaction();
+            transaction.replace(id, fragment);
+            transaction.commitAllowingStateLoss();
+        }
+    }
+
+
 }
