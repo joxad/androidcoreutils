@@ -28,7 +28,6 @@ ext {
     picassoVersion = "2.5.2"
     playServiceVersion = "8.4.0"
     retrofitVersion = "2.1.0"
-    realmVersion = ""
     rvDataBindingVersion = "1.3.0"
     rxBindingVersion = "0.4.0"
     rxVersion = "1.2.1"

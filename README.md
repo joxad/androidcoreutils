@@ -1,46 +1,20 @@
 # Android project Template
-This library is to use to quick start a new Android project that can handle :
- 
- - Dagger 2
- - Retrofit 2
- - MVVM/ Databinding
- - Reactive
- - Somme Databases 
 
-There is also some utily gradle tasks in order to manage the versioning, and to rename your .apk.
+This project an android library that is to be used as a module of your Android project.
 
-# How to Install
+> Main architecture idea packages:
 
-You will need Java 8 and at least version 1.5.1 of AndroidStudio
+- app (your application)
+- core (this module)
+- data (that will your core module to make the retrofit management)
 
-In the file local.properties, you will need to add the location of your java 8 installation, in order
-to make retrolambda working
+> Gradle imports
 
-local.properties
+In the folder /gradle/tasks, you will find a lot of usefull librairies.
 
-```groovy
-jdk.dir=/usr/lib/jvm/java-8-openjdk-amd64
-sdk.dir=/home/josh/Documents/dev/android-sdk
-keystore.file = keystore.jks
-file.password = password
-keystore.alias = alias
-keystore.password = password
+For example You can then add it into your project with :
 
-```
-# Goals
-
-The main goal is to start faster new projects with a lot of the common libs integrated from the start.
-
-
-
-# Major libs used
-
-- DataBinding 
-In order to test MVVM on Android
-- Dagger 2
-- Rx 
-- Realm (it seems it is a new DB that is going better, so need to test that)
-- Retrofit
+compile libs.rxPermissions
 
 # Contributing 
 
