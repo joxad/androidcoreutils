@@ -12,9 +12,9 @@ import java.util.List;
 
 
 /**
- * Created by Jocelyn on 09/01/2017.
+ * {@link GenericFragmentAdapter} is an adapter for viewpager
+ * Give it the list of fragmenttab with the tabTitles method.
  */
-
 public abstract class GenericFragmentAdapter extends FragmentPagerAdapter {
 
     private final Resources resources;

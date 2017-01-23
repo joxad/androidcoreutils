@@ -41,4 +41,8 @@ public class RetrofitBase {
     public Retrofit retrofit() {
         return retrofit;
     }
+    public <T> T create(final Class<T> service) {
+        return retrofit().create(service);
+    }
+
 }
