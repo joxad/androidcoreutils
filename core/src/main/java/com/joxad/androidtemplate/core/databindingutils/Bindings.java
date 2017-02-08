@@ -17,7 +17,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.joxad.androidtemplate.core.view.FlingNestedScrollView;
+import com.joxad.androidtemplate.core.view.list.FlingNestedScrollView;
 import com.joxad.androidtemplate.core.view.image.LoaderImageView;
 
 

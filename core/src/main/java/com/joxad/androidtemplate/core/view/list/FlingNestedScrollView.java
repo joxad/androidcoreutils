@@ -1,4 +1,4 @@
-package com.joxad.androidtemplate.core.view;
+package com.joxad.androidtemplate.core.view.list;
 
 import android.content.Context;
 import android.support.v4.widget.NestedScrollView;

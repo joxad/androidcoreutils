@@ -1,4 +1,4 @@
-package com.joxad.androidtemplate.core.view;
+package com.joxad.androidtemplate.core.view.list;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
