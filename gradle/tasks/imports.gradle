@@ -26,7 +26,7 @@ ext {
     okHttpVersion = "3.5.0"
     parcelerVersion = "1.1.1"
     picassoVersion = "2.5.2"
-    playServiceVersion = "10.0.1"
+    playServiceVersion = "10.2.0"
     playServiceAuthVersion = "9.8.0"
     retrofitVersion = "2.1.0"
     realmVersion = ""
