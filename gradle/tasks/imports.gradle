@@ -27,6 +27,7 @@ ext {
     parcelerVersion = "1.1.1"
     picassoVersion = "2.5.2"
     playServiceVersion = "10.0.1"
+    playServiceAuthVersion = "9.8.0"
     retrofitVersion = "2.1.0"
     realmVersion = ""
     rvDataBindingVersion = "1.3.0"
