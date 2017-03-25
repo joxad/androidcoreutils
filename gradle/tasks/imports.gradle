@@ -35,7 +35,7 @@ ext {
     rxVersion = "1.2.1"
     rxPermissionVersion = "0.9.1"
     slidingUpPanelVersion = "3.3.0"
-    smartLocationVersion = "3.2.11"
+    smartLocationVersion = "3.3.1"
     stethoVersion = "1.4.2"
     supportLibraryVersion = "25.1.0"
     twitterVersion = "1.13.0"
@@ -97,6 +97,7 @@ ext {
             circleIV               : "de.hdodenhof:circleimageview:$circularImageViewVersion",
             slidingUpPanel         : "com.sothree.slidinguppanel:library:$slidingUpPanelVersion",
             smartLocation          : "io.nlopez.smartlocation:library:$smartLocationVersion",
+            smartLocationRx        : "io.nlopez.smartlocation:rx:$smartLocationVersion",
             stetho                 : "com.facebook.stetho:stetho:$stethoVersion",
             stethoOkHttp           : "com.facebook.stetho:stetho-okhttp3:$stethoVersion",
             support                : "com.android.support:support-v13:$supportLibraryVersion",
