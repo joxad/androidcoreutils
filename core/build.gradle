@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
@@ -28,7 +27,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
 
-    apt libs.parceler
+    annotationProcessor libs.parceler
 
     compile libs.glide
     compile libs.okHttpInterceptor
