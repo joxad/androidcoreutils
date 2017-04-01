@@ -92,6 +92,7 @@ ext {
             retrofitConverterGson  : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
             robolectric            : 'org.robolectric:robolectric:3.0',
             rxAndroid              : "io.reactivex:rxandroid:$rxVersion",
+            rxAsync                : "io.reactivex:rxjava-async-util:$rxVersion",
             rxBindings             : "com.jakewharton.rxbinding:rxbinding:$rxBindingVersion",
             rxPermissions          : "com.tbruyelle.rxpermissions:rxpermissions:$rxPermissionVersion@aar",
             circleIV               : "de.hdodenhof:circleimageview:$circularImageViewVersion",
