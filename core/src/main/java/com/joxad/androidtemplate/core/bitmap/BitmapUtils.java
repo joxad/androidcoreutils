@@ -1,9 +1,12 @@
 package com.joxad.androidtemplate.core.bitmap;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.util.Base64;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -36,6 +39,21 @@ public class BitmapUtils {
                     e.printStackTrace();
                 }
                 return encImage.replaceAll("\n", "");
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+
+    }
+
+    public static Observable<String> getB64Bitmap(final Context context, final Uri path) {
+        return Observable.fromCallable(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                Bitmap bitmap = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(path));
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 80, stream);
+                byte[] image = stream.toByteArray();
+                String encodedImage = Base64.encodeToString(image, Base64.DEFAULT);
+                return encodedImage.replaceAll("\n", "");
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
 
