@@ -35,7 +35,7 @@ public class BitmapUtils {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                return encImage;
+                return encImage.replaceAll("\n", "");
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
 
