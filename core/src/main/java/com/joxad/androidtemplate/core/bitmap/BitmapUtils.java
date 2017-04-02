@@ -20,13 +20,13 @@ import rx.schedulers.Schedulers;
 public class BitmapUtils {
 
 
-    public static Observable<String> getB64(Context context, final Uri imageUri) {
+    public static Observable<String> getB64(Context context, final String path) {
         return Observable.fromCallable(new Callable<String>() {
             @Override
             public String call() throws Exception {
                 byte fileContent[] = new byte[3000];
                 String encImage = "";
-                try (FileInputStream fin = new FileInputStream(imageUri.getPath())) {
+                try (FileInputStream fin = new FileInputStream(path)) {
                     while (fin.read(fileContent) >= 0) {
                         encImage += Base64.encodeToString(fileContent, Base64.DEFAULT);
                     }
