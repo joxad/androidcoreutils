@@ -1,9 +1,12 @@
 package com.joxad.androidtemplate.core.databindingutils;
 
 import android.content.res.ColorStateList;
+import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +22,8 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.joxad.androidtemplate.core.view.image.LoaderImageView;
 import com.joxad.androidtemplate.core.view.list.FlingNestedScrollView;
+
+import java.util.List;
 
 
 /**
@@ -40,6 +45,8 @@ public class Bindings {
                     .into(view);
         }
     }
+
+
 
     /**
      * ViewGroup.FOCUS_BLOCK_DESCENDANTS
