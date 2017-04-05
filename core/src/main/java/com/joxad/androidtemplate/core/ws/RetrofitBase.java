@@ -2,6 +2,8 @@ package com.joxad.androidtemplate.core.ws;
 
 import android.support.annotation.Nullable;
 
+import com.google.gson.Gson;
+
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -21,6 +23,10 @@ public class RetrofitBase {
     }
 
     public RetrofitBase(String url, @Nullable Interceptor interceptor) {
+        this(url, null, null);
+    }
+
+    public RetrofitBase(String url, @Nullable Interceptor interceptor, Gson gson) {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -32,7 +38,7 @@ public class RetrofitBase {
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(gson == null ? GsonConverterFactory.create() : GsonConverterFactory.create(gson))
                 .client(builder.build())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
@@ -41,6 +47,7 @@ public class RetrofitBase {
     public Retrofit retrofit() {
         return retrofit;
     }
+
     public <T> T create(final Class<T> service) {
         return retrofit().create(service);
     }
