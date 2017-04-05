@@ -1,12 +1,9 @@
 package com.joxad.androidtemplate.core.databindingutils;
 
 import android.content.res.ColorStateList;
-import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +20,6 @@ import com.bumptech.glide.request.target.Target;
 import com.joxad.androidtemplate.core.view.image.LoaderImageView;
 import com.joxad.androidtemplate.core.view.list.FlingNestedScrollView;
 
-import java.util.List;
-
 
 /**
  * Created by josh on 26/03/16.
@@ -34,18 +29,14 @@ public class Bindings {
 
     @BindingAdapter({"imageUrl"})
     public static void loadImage(ImageView view, String imageUrl) {
-        if (imageUrl == null)
-            view.setVisibility(View.GONE);
-        else {
-            view.setVisibility(View.VISIBLE);
-            Glide.with(view.getContext()).load(imageUrl)
-                    .skipMemoryCache(true)
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .dontTransform()
-                    .into(view);
-        }
-    }
 
+        Glide.with(view.getContext()).load(imageUrl)
+                .skipMemoryCache(true)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .dontTransform()
+                .into(view);
+
+    }
 
 
     /**
