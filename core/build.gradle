@@ -38,6 +38,7 @@ dependencies {
     compile libs.retrofitAdapterRxJava
     compile libs.rxAndroid
     compile libs.support
+    compile libs.design
 
     provided libs.lombok
     provided libs.javaxAnnotation

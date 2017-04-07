@@ -32,7 +32,7 @@ public class Bindings {
 
         Glide.with(view.getContext()).load(imageUrl)
                 .skipMemoryCache(true)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .dontTransform()
                 .into(view);
 
