@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion rootProject.ext.androidCompileSdkVersion
@@ -28,7 +27,8 @@ dependencies {
 
 
     annotationProcessor libs.parceler
-
+    compile libs.design
+    compile libs.easyDataBinding
     compile libs.glide
     compile libs.okHttpInterceptor
     compile libs.parcelerApi
@@ -38,7 +38,6 @@ dependencies {
     compile libs.retrofitAdapterRxJava
     compile libs.rxAndroid
     compile libs.support
-    compile libs.design
 
     provided libs.lombok
     provided libs.javaxAnnotation

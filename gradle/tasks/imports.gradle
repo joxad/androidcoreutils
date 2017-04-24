@@ -8,7 +8,7 @@ ext {
     dartVersion = "2.0.0"
     dbFlowVersion = "3.0.0-beta6"
     materialDrawerVersion = "5.5.0"
-    easyDataBindingVersion = "1.0.1"
+    easyDataBindingVersion = "1.0.3"
     easyGcmVersion = "1.0.4"
     easyPrefsVersion = "1.8.1"
     easySpotifyVersion = "1.1.1"
@@ -37,7 +37,7 @@ ext {
     slidingUpPanelVersion = "3.3.0"
     smartLocationVersion = "3.3.1"
     stethoVersion = "1.4.2"
-    supportLibraryVersion = "25.1.0"
+    supportLibraryVersion = "25.3.1"
     twitterVersion = "1.13.0"
 
     libs = [

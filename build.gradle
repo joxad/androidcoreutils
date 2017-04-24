@@ -5,9 +5,7 @@ buildscript {
         jcenter()
         maven { url "http://dl.bintray.com/joxad/maven" }
         maven { url "http://dl.bintray.com/pixplicity/maven" }
-        maven { url "http://dl.bintray.com/glomadrian/maven" }
         maven { url "https://jitpack.io" }
-        mavenCentral()
         flatDir {
             dirs 'libs'
         }
@@ -15,9 +13,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.1'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
-
     }
 }
 
@@ -40,7 +35,7 @@ task clean(type: Delete) {
 ext {
     androidCompileSdkVersion = 25
     androidBuildToolsVersion = '25.0.2'
-    androidMinSdkVersion = 19
+    androidMinSdkVersion = 21
     androidTargetSdkVersion = 25
 }
 
