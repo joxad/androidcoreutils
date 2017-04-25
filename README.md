@@ -8,6 +8,83 @@ This project an android library that is to be used as a module of your Android p
 - core (this module)
 - data (that will your core module to make the retrofit management)
 
+
+> Installation 
+
+From Scratch 
+
+1. Create your project in android studio
+2. Make a git init
+3. Clone this project
+
+```
+git submodule add https://github.com/joxad/androidcoreutils.git
+```
+
+4. Update your app build.gradle
+
+```
+compile project(path: ':androidcoreutils:core')
+```
+
+5. Update your settings.gradle
+
+```
+include ':app', ':androidcoreutils:core'
+```
+
+6. Update your project build.gradle
+
+```groovy
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url "http://dl.bintray.com/joxad/maven" }
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath 'me.tatarka:gradle-retrolambda:3.6.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url "http://dl.bintray.com/joxad/maven" }
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+
+
+ext {
+    androidCompileSdkVersion = 25
+    androidBuildToolsVersion = '25.0.2'
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 25
+}
+
+apply from: 'androidcoreutils/gradle/tasks/versioning.gradle'
+apply from: 'androidcoreutils/gradle/tasks/imports.gradle'
+apply plugin: 'me.tatarka.retrolambda'
+
+```
+
+
+
+
 > Gradle imports
 
 In the folder /gradle/tasks, you will find a lot of usefull librairies.
