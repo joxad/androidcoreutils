@@ -57,6 +57,24 @@ public class Bindings {
     }
 
 
+    @BindingAdapter({"animateTranslation","translationY"})
+    public static void translationY(final View view, final boolean show, final float translationY) {
+        if (show & view.getVisibility() == View.GONE) {
+            view.setVisibility(View.VISIBLE);
+            view.setY(translationY);
+            view.animate().translationY(0).setDuration(400).start();
+        } else if (!show && view.getVisibility() == View.VISIBLE) {
+            view.animate().translationY(translationY).setDuration(400).withEndAction(new Runnable() {
+                @Override
+                public void run() {
+                    view.setVisibility(View.GONE);
+                }
+            }).start();
+        }
+
+
+    }
+
     @BindingAdapter({"animateHideScale"})
     public static void animateHideScale(View view, boolean hide) {
         view.animate().scaleX(hide ? 0 : 1).scaleY(hide ? 0 : 1).setDuration(200).start();
