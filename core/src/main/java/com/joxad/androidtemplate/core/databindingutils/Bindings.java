@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -74,6 +75,7 @@ public class Bindings {
 
 
     }
+
 
     @BindingAdapter({"animateHideScale"})
     public static void animateHideScale(View view, boolean hide) {
