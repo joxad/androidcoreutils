@@ -1,10 +1,9 @@
 package com.joxad.androidtemplate.core.adapter;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v7.app.AppCompatActivity;
 
 import com.joxad.androidtemplate.core.fragment.FragmentTab;
 
@@ -18,20 +17,14 @@ import java.util.List;
 public abstract class GenericFragmentAdapter extends FragmentPagerAdapter {
 
     private final Resources resources;
-    private final Context context;
+    private final AppCompatActivity context;
 
     private List<FragmentTab> tabTitles;
 
 
-    /**
-     * Create pager adapter
-     *
-     * @param context
-     * @param fm
-     */
-    public GenericFragmentAdapter(final Context context, FragmentManager fm) {
-        super(fm);
-        this.context = context;
+    public GenericFragmentAdapter(final AppCompatActivity activity) {
+        super(activity.getSupportFragmentManager());
+        this.context = activity;
         this.resources = context.getResources();
         this.tabTitles = tabTitles();
     }

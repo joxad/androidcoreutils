@@ -24,22 +24,15 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-
-
-    annotationProcessor libs.parceler
-    compile libs.design
     compile libs.easyDataBinding
     compile libs.glide
     compile libs.okHttpInterceptor
-    compile libs.parcelerApi
     compile libs.recyclerView
     compile libs.retrofit
     compile libs.retrofitConverterGson
     compile libs.retrofitAdapterRxJava
     compile libs.rxAndroid
-    compile libs.support
 
-    provided libs.lombok
     provided libs.javaxAnnotation
 
 }
