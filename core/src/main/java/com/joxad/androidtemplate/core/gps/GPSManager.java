@@ -4,8 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.provider.Settings;
 
-import rx.Observable;
-import rx.subjects.BehaviorSubject;
+import io.reactivex.Observable;
+import io.reactivex.subjects.BehaviorSubject;
+
 
 /**
  * Created by Jocelyn on 07/03/2017.
@@ -19,7 +20,7 @@ public enum GPSManager {
     private boolean isSearching;
 
     public Observable<Boolean> gpsEnableObservable() {
-        return gpsEnabled.asObservable();
+        return gpsEnabled;
     }
 
     public void init(Application application) {

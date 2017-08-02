@@ -28,11 +28,11 @@ ext {
     picassoVersion = "2.5.2"
     playServiceVersion = "10.2.0"
     playServiceAuthVersion = "9.8.0"
-    retrofitVersion = "2.1.0"
+    retrofitVersion = "2.3.0"
     realmVersion = ""
     rvDataBindingVersion = "2.0.1"
     rxBindingVersion = "0.4.0"
-    rxVersion = "1.2.1"
+    rxVersion = "2.1.2"
     rxPermissionVersion = "0.9.1"
     slidingUpPanelVersion = "3.3.0"
     smartLocationVersion = "3.3.1"
@@ -92,7 +92,6 @@ ext {
             retrofitAdapterRxJava  : "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion",
             retrofitConverterGson  : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
             robolectric            : 'org.robolectric:robolectric:3.0',
-            rxAndroid              : "io.reactivex:rxandroid:$rxVersion",
             rxAsync                : "io.reactivex:rxjava-async-util:$rxVersion",
             rxBindings             : "com.jakewharton.rxbinding:rxbinding:$rxBindingVersion",
             rxPermissions          : "com.tbruyelle.rxpermissions:rxpermissions:$rxPermissionVersion@aar",

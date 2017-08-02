@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import rx.Observable;
-import rx.subjects.BehaviorSubject;
+import io.reactivex.Observable;
+import io.reactivex.subjects.BehaviorSubject;
 
 /**
  * Created by Jocelyn on 12/04/2017.
@@ -17,7 +17,7 @@ public class NetworkReceiver extends BroadcastReceiver {
 
 
     public static Observable<Boolean> networkStatusObservable() {
-        return connected.asObservable();
+        return connected;
     }
 
     @Override

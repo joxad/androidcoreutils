@@ -12,9 +12,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.Callable;
 
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by Jocelyn on 01/04/2017.
