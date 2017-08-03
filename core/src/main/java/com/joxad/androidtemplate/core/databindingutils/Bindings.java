@@ -3,12 +3,13 @@ package com.joxad.androidtemplate.core.databindingutils;
 import android.content.res.ColorStateList;
 import android.databinding.BindingAdapter;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -28,11 +29,12 @@ import com.joxad.androidtemplate.core.view.list.FlingNestedScrollView;
 public class Bindings {
 
 
-    @BindingAdapter({"imageUrl"})
-    public static void loadImage(ImageView view, String imageUrl) {
+    @BindingAdapter(value = {"imageUrl", "imageError"},requireAll = false)
+    public static void loadImage(ImageView view, String imageUrl, @Nullable Drawable imageError) {
 
         Glide.with(view.getContext()).load(imageUrl)
                 .skipMemoryCache(true)
+                .error(imageError)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .dontTransform()
                 .into(view);
@@ -58,7 +60,7 @@ public class Bindings {
     }
 
 
-    @BindingAdapter({"animateTranslation","translationY"})
+    @BindingAdapter({"animateTranslation", "translationY"})
     public static void translationY(final View view, final boolean show, final float translationY) {
         if (show & view.getVisibility() == View.GONE) {
             view.setVisibility(View.VISIBLE);
