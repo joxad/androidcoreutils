@@ -18,4 +18,7 @@ public enum AppLog {
     public void d(String channel, String message) {
         Log.d(baseLog,channel + message);
     }
+    public void e(String channel, String message) {
+        Log.e(baseLog,channel + message);
+    }
 }
