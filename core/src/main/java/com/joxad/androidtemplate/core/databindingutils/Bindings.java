@@ -29,6 +29,7 @@ import com.joxad.androidtemplate.core.view.list.FlingNestedScrollView;
 public class Bindings {
 
 
+
     @BindingAdapter(value = {"imageUrl", "imageError"},requireAll = false)
     public static void loadImage(ImageView view, String imageUrl, @Nullable Drawable imageError) {
 
