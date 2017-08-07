@@ -9,6 +9,7 @@ buildscript {
         flatDir {
             dirs 'libs'
         }
+        maven { url 'https://maven.google.com' }
 
     }
     dependencies {
@@ -25,6 +26,8 @@ allprojects {
         flatDir {
             dirs 'libs'
         }
+        maven { url 'https://maven.google.com' }
+
     }
 }
 
