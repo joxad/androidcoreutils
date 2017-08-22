@@ -5,7 +5,9 @@ import android.databinding.BindingAdapter;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,8 +31,7 @@ import com.joxad.androidtemplate.core.view.list.FlingNestedScrollView;
 public class Bindings {
 
 
-
-    @BindingAdapter(value = {"imageUrl", "imageError"},requireAll = false)
+    @BindingAdapter(value = {"imageUrl", "imageError"}, requireAll = false)
     public static void loadImage(ImageView view, String imageUrl, @Nullable Drawable imageError) {
 
         Glide.with(view.getContext()).load(imageUrl)
@@ -60,6 +61,16 @@ public class Bindings {
         view.setEnabled(enable);
     }
 
+
+    @BindingAdapter("backgroundTint")
+    public static void setBackgroundTint(final FloatingActionButton fab, final @ColorInt int bg_color_res) {
+        fab.setBackgroundTintList(bg_color_res != 0 ? ColorStateList.valueOf(bg_color_res) : null);
+    }
+
+    @BindingAdapter("backgroundColor")
+    public static void setBackgroundColor(final FloatingActionButton fab, final @ColorInt int bg_color) {
+        fab.setBackgroundTintList(bg_color != 0 ? ColorStateList.valueOf(bg_color) : null);
+    }
 
     @BindingAdapter({"animateTranslation", "translationY"})
     public static void translationY(final View view, final boolean show, final float translationY) {
