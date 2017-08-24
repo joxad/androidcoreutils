@@ -3,6 +3,7 @@ package com.joxad.androidtemplate.core.databindingutils;
 import android.content.res.ColorStateList;
 import android.databinding.BindingAdapter;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorInt;
@@ -43,6 +44,20 @@ public class Bindings {
 
     }
 
+    @BindingAdapter("android:typeface")
+    public static void setTypeface(TextView v, String style) {
+        switch (style) {
+            case "normal":
+                v.setTypeface(null, Typeface.NORMAL);
+                break;
+            case "bold":
+                v.setTypeface(null, Typeface.BOLD);
+                break;
+            default:
+                v.setTypeface(null, Typeface.NORMAL);
+                break;
+        }
+    }
 
     /**
      * ViewGroup.FOCUS_BLOCK_DESCENDANTS
