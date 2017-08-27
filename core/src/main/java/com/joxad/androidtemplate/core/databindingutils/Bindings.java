@@ -22,6 +22,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.joxad.androidtemplate.core.network.NetworkStatusManager;
 import com.joxad.androidtemplate.core.view.image.LoaderImageView;
 import com.joxad.androidtemplate.core.view.list.FlingNestedScrollView;
 
@@ -34,13 +35,14 @@ public class Bindings {
 
     @BindingAdapter(value = {"imageUrl", "imageError"}, requireAll = false)
     public static void loadImage(ImageView view, String imageUrl, @Nullable Drawable imageError) {
-
-        Glide.with(view.getContext()).load(imageUrl)
-                .skipMemoryCache(true)
-                .error(imageError)
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .dontTransform()
-                .into(view);
+        if (NetworkStatusManager.INSTANCE.hasGoodConnection()) {
+            Glide.with(view.getContext()).load(imageUrl)
+                    .skipMemoryCache(true)
+                    .error(imageError)
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                    .dontTransform()
+                    .into(view);
+        }
 
     }
 
