@@ -44,7 +44,7 @@ public enum NetworkStatusManager {
         connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            networkCallback = new CustomNetworkCallback(connectivityManager, iNetworkInfomation);
+            networkCallback = new CustomNetworkCallback( iNetworkInfomation);
             connectivityManager.registerDefaultNetworkCallback(networkCallback);
         } else {
             networkReceiver = new NetworkReceiver(connectivityManager, iNetworkInfomation);

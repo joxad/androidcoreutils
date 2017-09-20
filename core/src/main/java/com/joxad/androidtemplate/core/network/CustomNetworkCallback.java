@@ -12,14 +12,10 @@ import android.support.annotation.RequiresApi;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class CustomNetworkCallback extends ConnectivityManager.NetworkCallback {
+    private final INetworkInfomation networkInfomation;
     int MIN_BANDWIDTH_KBPS = 320;
 
-
-    ConnectivityManager connectivityManager;
-    private INetworkInfomation networkInfomation;
-
-    public CustomNetworkCallback(ConnectivityManager connectivityManager, INetworkInfomation networkInfomation) {
-        this.connectivityManager = connectivityManager;
+    public CustomNetworkCallback( INetworkInfomation networkInfomation) {
         this.networkInfomation = networkInfomation;
     }
 
@@ -32,7 +28,7 @@ public class CustomNetworkCallback extends ConnectivityManager.NetworkCallback {
     @Override
     public void onCapabilitiesChanged(Network network, NetworkCapabilities networkCapabilities) {
         super.onCapabilitiesChanged(network, networkCapabilities);
-        int bandwidth = connectivityManager.getNetworkCapabilities(network).getLinkDownstreamBandwidthKbps();
+        int bandwidth = networkCapabilities.getLinkDownstreamBandwidthKbps();
         networkInfomation.onNetworkValid(bandwidth < MIN_BANDWIDTH_KBPS);
     }
 
