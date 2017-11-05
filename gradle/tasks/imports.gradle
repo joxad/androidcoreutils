@@ -16,7 +16,7 @@ ext {
     facebookVersion = "4.6.0"
     freezerVersion = "2.0.3"
     glideTransformationVersion = "2.0.1"
-    glideVersion = "3.7.0"
+    glideVersion = "4.3.0"
     gsonVersion = "2.5"
     javaxVersion = "1.0"
     keyboardVersion = "1.0.1"
@@ -65,6 +65,7 @@ ext {
             freezer                : "fr.xebia.android.freezer:freezer:$freezerVersion",
             freezerProvider        : "fr.xebia.android.freezer:freezer-annotations:$freezerVersion",
             glide                  : "com.github.bumptech.glide:glide:$glideVersion",
+            glideCompiler          : "com.github.bumptech.glide:compiler:$glideVersion",
             glideTransfo           : "jp.wasabeef:glide-transformations:$glideTransformationVersion",
             gson                   : "com.google.code.gson:gson:$gsonVersion",
             henson                 : "com.f2prateek.dart:henson:$dartVersion",

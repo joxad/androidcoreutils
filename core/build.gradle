@@ -25,6 +25,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile libs.glide
+    annotationProcessor libs.glideCompiler
     compile libs.okHttpInterceptor
     compile libs.recyclerView
     compile libs.appCompat

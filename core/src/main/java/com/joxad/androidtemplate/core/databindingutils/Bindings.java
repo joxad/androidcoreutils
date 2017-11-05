@@ -18,12 +18,6 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
-import com.joxad.androidtemplate.core.network.NetworkStatusManager;
-import com.joxad.androidtemplate.core.view.image.LoaderImageView;
 import com.joxad.androidtemplate.core.view.list.FlingNestedScrollView;
 
 
@@ -35,15 +29,9 @@ public class Bindings {
 
     @BindingAdapter(value = {"imageUrl", "imageError"}, requireAll = false)
     public static void loadImage(ImageView view, String imageUrl, @Nullable Drawable imageError) {
-        if (NetworkStatusManager.INSTANCE.hasGoodConnection()) {
-            Glide.with(view.getContext()).load(imageUrl)
-                    .skipMemoryCache(true)
-                    .error(imageError)
-                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                    .dontTransform()
-                    .into(view);
-        }
-
+        Glide.with(view.getContext())
+                .load(imageUrl)
+                .into(view);
     }
 
     @BindingAdapter("android:typeface")
@@ -122,31 +110,6 @@ public class Bindings {
     @BindingAdapter({"nestedScrollingEnabled"})
     public static void nestedScroll(RecyclerView rv, boolean b) {
         rv.setNestedScrollingEnabled(b);
-    }
-
-    @BindingAdapter({"imageUrlLoader"})
-    public static void loadImage(final LoaderImageView view, String imageUrl) {
-        if (imageUrl == null) {
-            view.setVisibility(View.GONE);
-        } else {
-            view.setVisibility(View.VISIBLE);
-            Glide.with(view.getContext()).load(imageUrl)
-                    .skipMemoryCache(true)
-                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                    .dontTransform().listener(new RequestListener<String, GlideDrawable>() {
-                @Override
-                public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                    view.progressBar.setVisibility(View.INVISIBLE);
-                    return false;
-                }
-
-                @Override
-                public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                    view.progressBar.setVisibility(View.GONE);
-                    return false;
-                }
-            }).into(view.imageView);
-        }
     }
 
 
