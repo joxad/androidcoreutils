@@ -9,6 +9,7 @@ import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,12 @@ public class Bindings {
 
     @BindingAdapter(value = {"imageUrl", "imageError"}, requireAll = false)
     public static void loadImage(ImageView view, String imageUrl, @Nullable Drawable imageError) {
+        Glide.with(view.getContext())
+                .load(imageUrl)
+                .into(view);
+    }
+    @BindingAdapter(value = "srcCompat")
+    public static void setImage(AppCompatImageView view, Drawable imageUrl) {
         Glide.with(view.getContext())
                 .load(imageUrl)
                 .into(view);
